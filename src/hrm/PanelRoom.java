@@ -5,15 +5,16 @@
  */
 package hrm;
 
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author DelaTorreNelson
  */
 public class PanelRoom extends javax.swing.JPanel {
-
-    /**
-     * Creates new form PanelRoom
-     */
+    public String status = null;
+    
     public PanelRoom() {
         initComponents();
     }
@@ -26,43 +27,201 @@ public class PanelRoom extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel22 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
+        roomUtility = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jPanel1 = new javax.swing.JPanel();
+        lbl_room_no = new javax.swing.JLabel();
+        lbl_guest_name = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        lbl_guest_id1 = new javax.swing.JLabel();
+        lbl_guest_id = new javax.swing.JLabel();
+        lbl_check_in = new javax.swing.JLabel();
+        lbl_check_out = new javax.swing.JLabel();
 
-        jLabel22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel22.setText("Rm 1");
+        jMenuItem1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        roomUtility.add(jMenuItem1);
 
-        jLabel21.setBackground(java.awt.Color.red);
-        jLabel21.setMaximumSize(new java.awt.Dimension(12, 12));
-        jLabel21.setMinimumSize(new java.awt.Dimension(12, 12));
-        jLabel21.setOpaque(true);
-        jLabel21.setPreferredSize(new java.awt.Dimension(12, 12));
+        jMenuItem2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem2.setText("jMenuItem2");
+        roomUtility.add(jMenuItem2);
+
+        jMenuItem3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem3.setText("jMenuItem3");
+        roomUtility.add(jMenuItem3);
+
+        jMenu2.setText("jMenu2");
+        jMenu2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+
+        jMenuItem4.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem4.setText("jMenuItem4");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem5.setText("jMenuItem5");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem6.setText("jMenuItem6");
+        jMenu2.add(jMenuItem6);
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        jMenu2.add(jCheckBoxMenuItem1);
+
+        roomUtility.add(jMenu2);
+
+        setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        setComponentPopupMenu(roomUtility);
+        setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        setFocusCycleRoot(true);
+        setMaximumSize(new java.awt.Dimension(200, 200));
+        setMinimumSize(new java.awt.Dimension(200, 200));
+        setPreferredSize(new java.awt.Dimension(200, 200));
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+
+        jPanel1.setOpaque(false);
+
+        lbl_room_no.setBackground(new java.awt.Color(0, 173, 0));
+        lbl_room_no.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        lbl_room_no.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_room_no.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_room_no.setText("1");
+        lbl_room_no.setMaximumSize(getPreferredSize());
+        lbl_room_no.setMinimumSize(getPreferredSize());
+        lbl_room_no.setOpaque(true);
+        lbl_room_no.setPreferredSize(new java.awt.Dimension(32, 32));
+
+        lbl_guest_name.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_guest_name.setForeground(java.awt.Color.darkGray);
+        lbl_guest_name.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(lbl_room_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_guest_name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lbl_room_no, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(lbl_guest_name, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanel2.setOpaque(false);
+
+        lbl_guest_id1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_guest_id1.setForeground(java.awt.Color.darkGray);
+        lbl_guest_id1.setText("ID:");
+
+        lbl_guest_id.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_guest_id.setForeground(java.awt.Color.darkGray);
+        lbl_guest_id.setText("1234234456409");
+
+        lbl_check_in.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_check_in.setForeground(java.awt.Color.darkGray);
+        lbl_check_in.setText("jLabel1");
+
+        lbl_check_out.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        lbl_check_out.setForeground(java.awt.Color.darkGray);
+        lbl_check_out.setText("jLabel1");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_check_in)
+                    .addComponent(lbl_check_out)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(lbl_guest_id1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lbl_guest_id, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_guest_id)
+                    .addComponent(lbl_guest_id1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lbl_check_in)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lbl_check_out)
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel22)
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        
+        JOptionPane.showMessageDialog(this, this.status);
+    }//GEN-LAST:event_formMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel jLabel21;
-    public javax.swing.JLabel jLabel22;
+    public javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    public javax.swing.JMenu jMenu2;
+    public javax.swing.JMenuItem jMenuItem1;
+    public javax.swing.JMenuItem jMenuItem2;
+    public javax.swing.JMenuItem jMenuItem3;
+    public javax.swing.JMenuItem jMenuItem4;
+    public javax.swing.JMenuItem jMenuItem5;
+    public javax.swing.JMenuItem jMenuItem6;
+    public javax.swing.JPanel jPanel1;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JLabel lbl_check_in;
+    public javax.swing.JLabel lbl_check_out;
+    public javax.swing.JLabel lbl_guest_id;
+    public javax.swing.JLabel lbl_guest_id1;
+    public javax.swing.JLabel lbl_guest_name;
+    public javax.swing.JLabel lbl_room_no;
+    public javax.swing.JPopupMenu roomUtility;
     // End of variables declaration//GEN-END:variables
 }

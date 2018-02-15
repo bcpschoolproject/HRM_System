@@ -4,33 +4,26 @@
  * and open the template in the editor.
  */
 package hrm;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GridBagLayout;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import hrm.IconSet.FontAwesome;
 import java.awt.Color;
-import javax.swing.Icon;
-import javax.swing.JLabel;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import static javax.swing.Box.createHorizontalGlue;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author DelaTorreNelson
  */
 public class Login extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Login
-     */
+    ResultSet rs = null;
+    Connection conn = null;
+    PreparedStatement pst = null;
+    public String adminLevel = null;
+    public String adminName = null;
+    public int loginAttempt = 0;
+    
     public Login() {
         initComponents();
     }
@@ -42,41 +35,227 @@ public class Login extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        jButton1 = new javax.swing.JButton();
+        pnl_login = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        username = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        btn_login = new javax.swing.JButton();
+        password = new javax.swing.JPasswordField();
+        lbl_forgot_password = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        admin_level = new javax.swing.JMenu();
+        admin_name = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setExtendedState(6);
+        setUndecorated(true);
+        getContentPane().setLayout(new java.awt.GridBagLayout());
 
-        jButton1.setText("jButton1");
+        pnl_login.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Staff Login", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 1, 18), java.awt.Color.darkGray)); // NOI18N
+        pnl_login.setForeground(java.awt.Color.darkGray);
+        pnl_login.setOpaque(false);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setForeground(java.awt.Color.darkGray);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("Login name:");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(376, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(248, 248, 248))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(131, 131, 131)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        username.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        username.setOpaque(false);
+        username.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usernameFocusGained(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel2.setForeground(java.awt.Color.darkGray);
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("Password:");
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
+        btn_login.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btn_login.setForeground(java.awt.Color.darkGray);
+        btn_login.setText("Login");
+        btn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_loginActionPerformed(evt);
+            }
+        });
+
+        password.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        password.setOpaque(false);
+        password.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordFocusGained(evt);
+            }
+        });
+
+        lbl_forgot_password.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        lbl_forgot_password.setForeground(new java.awt.Color(0, 0, 200));
+        lbl_forgot_password.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lbl_forgot_password.setText("Forgot Password?");
+        lbl_forgot_password.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lbl_forgot_password.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_forgot_passwordMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnl_loginLayout = new javax.swing.GroupLayout(pnl_login);
+        pnl_login.setLayout(pnl_loginLayout);
+        pnl_loginLayout.setHorizontalGroup(
+            pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_loginLayout.createSequentialGroup()
+                .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_loginLayout.createSequentialGroup()
+                        .addGap(0, 115, Short.MAX_VALUE)
+                        .addComponent(lbl_forgot_password, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnl_loginLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnl_loginLayout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(username))
+                            .addGroup(pnl_loginLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(26, 26, 26)
+                                .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(password))))))
+                .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(136, 136, 136)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(141, 141, 141))
+        pnl_loginLayout.setVerticalGroup(
+            pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_loginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_loginLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel1))
+                    .addComponent(username, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_loginLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel2))
+                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addComponent(btn_login)
+                .addGap(6, 6, 6)
+                .addComponent(lbl_forgot_password))
         );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(133, 154, 174, 186);
+        getContentPane().add(pnl_login, gridBagConstraints);
+
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(64, 50));
+        //jMenuBar1.add(createHorizontalGlue());
+
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hrm/images/icons/vertical-align-bottom-4x.png"))); // NOI18N
+        jMenu3.setText("HRM System");
+        jMenu3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jMenu3.setDelay(100);
+        jMenuBar1.add(jMenu3);
+        jMenuBar1.add(createHorizontalGlue());
+
+        admin_level.setText("jMenu4");
+        jMenuBar1.add(admin_level);
+
+        admin_name.setText("jMenu5");
+        jMenuBar1.add(admin_name);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hrm/images/icons/account-logout-2x.png"))); // NOI18N
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu1);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
+        username.setText("");
+        btn_login.setText("Login");
+        btn_login.setForeground(Color.DARK_GRAY);
+    }//GEN-LAST:event_usernameFocusGained
+
+    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        String sql = " SELECT admin_name, admin_password, admin_level FROM admin where admin_name=? and admin_password=?";
+
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital","root","");
+            pst=conn.prepareStatement(sql);
+            pst.setString(1,username.getText());
+            pst.setString(2,password.getText());
+            rs=pst.executeQuery();
+            if(rs.next()){
+                adminName = rs.getString(1);
+                adminLevel = rs.getString(3);
+                rs.close();
+                pst.close();
+                Main s = new Main ();
+                s.admin_level.setText(adminLevel);
+                s.admin_name.setText(adminName);
+                s.setVisible(true) ;
+                this.setVisible(false);
+            }
+            else{
+                if(username.getText().equals("") || password.getText().equals("")){
+                    btn_login.setText("Empty field(s)");
+                }else{
+                    btn_login.setText("Incorrect Login");
+                    
+                    loginAttempt++;
+
+                    if(loginAttempt > 0){
+                        JOptionPane.showMessageDialog(null, "You only have 3 login attempt.\n used "+loginAttempt+" of 3","",JOptionPane.ERROR_MESSAGE);
+                    }                    
+                                        
+                    if(loginAttempt >= 3){                        
+                        JOptionPane.showMessageDialog(null, "You've entered incorrect login details more than 3 times \n Proceed to IT department to reset your account");
+                        password.setEnabled(false);
+                        username.setEnabled(false);
+                        btn_login.setEnabled(false);
+                    }
+                }
+
+                btn_login.setForeground(Color.RED);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btn_loginActionPerformed
+
+    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
+        password.setText("");
+        btn_login.setText("Login");
+        btn_login.setForeground(Color.DARK_GRAY);
+    }//GEN-LAST:event_passwordFocusGained
+
+    private void lbl_forgot_passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_forgot_passwordMouseClicked
+        String msg = "Contact IT Department to reset your account.";
+        JOptionPane.showMessageDialog(rootPane, msg);
+    }//GEN-LAST:event_lbl_forgot_passwordMouseClicked
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jMenu1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -89,7 +268,7 @@ public class Login extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -114,7 +293,17 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton jButton1;
+    public javax.swing.JMenu admin_level;
+    public javax.swing.JMenu admin_name;
+    public javax.swing.JButton btn_login;
     public javax.swing.JLabel jLabel1;
+    public javax.swing.JLabel jLabel2;
+    public javax.swing.JMenu jMenu1;
+    public javax.swing.JMenu jMenu3;
+    public javax.swing.JMenuBar jMenuBar1;
+    public javax.swing.JLabel lbl_forgot_password;
+    public javax.swing.JPasswordField password;
+    public javax.swing.JPanel pnl_login;
+    public javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
 }
