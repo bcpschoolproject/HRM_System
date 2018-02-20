@@ -5,17 +5,32 @@
  */
 package hrm.modules.core2.front_office;
 
+import hrm.Login;
+import hrm.modules.core2.housekeeping.Housekeeping;
+import hrm.modules.core2.room_facilities.RoomFacilities;
+import hrm.modules.core2.supplier_management.Supplier;
+import java.awt.Color;
+import static javax.swing.Box.createHorizontalGlue;
+import javax.swing.JMenu;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+
+
 /**
  *
  * @author DelaTorreNelson
  */
 public class FrontOffice extends javax.swing.JFrame {
+    
+    
 
+    
     /**
-     * Creates new form FrontOffice
+     * Creates new form Main
      */
     public FrontOffice() {
-        initComponents();
+        initComponents();  
+        addRoomTile();
     }
 
     /**
@@ -25,22 +40,322 @@ public class FrontOffice extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        roomUtility = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        pnl_body = new javax.swing.JPanel();
+        pnl_utility = new javax.swing.JPanel();
+        pnl_rooms = new javax.swing.JPanel();
+        pnl_sidePane = new javax.swing.JPanel();
+        pnl_footer = new javax.swing.JPanel();
+        menu_bar = new javax.swing.JMenuBar();
+        mnu_modules = new javax.swing.JMenu();
+        Housekeeping = new javax.swing.JMenuItem();
+        RoomFacilities = new javax.swing.JMenuItem();
+        FrontDesk = new javax.swing.JMenuItem();
+        Billing = new javax.swing.JMenuItem();
+        SupplierManagement = new javax.swing.JMenuItem();
+        admin_name = new javax.swing.JMenu();
+        mnu_system_request = new javax.swing.JMenuItem();
+        admin_level = new javax.swing.JMenuItem();
+        mnu_logout = new javax.swing.JMenuItem();
+
+        jMenuItem1.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        roomUtility.add(jMenuItem1);
+
+        jMenuItem2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem2.setText("jMenuItem2");
+        roomUtility.add(jMenuItem2);
+
+        jMenuItem3.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem3.setText("jMenuItem3");
+        roomUtility.add(jMenuItem3);
+
+        jMenu2.setText("jMenu2");
+        jMenu2.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+
+        jMenuItem4.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem4.setText("jMenuItem4");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem5.setText("jMenuItem5");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setFont(new java.awt.Font("Dialog", 1, 16)); // NOI18N
+        jMenuItem6.setText("jMenuItem6");
+        jMenu2.add(jMenuItem6);
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        jMenu2.add(jCheckBoxMenuItem1);
+
+        roomUtility.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("FrontDesk");
+        setExtendedState(6);
+        setUndecorated(true);
+
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setMaximumSize(null);
+        jScrollPane2.setMinimumSize(null);
+
+        java.awt.GridBagLayout pnl_bodyLayout = new java.awt.GridBagLayout();
+        pnl_bodyLayout.columnWidths = new int[] {0};
+        pnl_bodyLayout.rowHeights = new int[] {0};
+        pnl_bodyLayout.columnWeights = new double[] {0.0};
+        pnl_bodyLayout.rowWeights = new double[] {0.0};
+        pnl_body.setLayout(pnl_bodyLayout);
+
+        pnl_utility.setBackground(new java.awt.Color(204, 204, 204));
+        pnl_utility.setMaximumSize(new java.awt.Dimension(200, 200));
+        pnl_utility.setMinimumSize(new java.awt.Dimension(200, 200));
+        pnl_utility.setPreferredSize(new java.awt.Dimension(200, 200));
+
+        javax.swing.GroupLayout pnl_utilityLayout = new javax.swing.GroupLayout(pnl_utility);
+        pnl_utility.setLayout(pnl_utilityLayout);
+        pnl_utilityLayout.setHorizontalGroup(
+            pnl_utilityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+        pnl_utilityLayout.setVerticalGroup(
+            pnl_utilityLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 2000, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(12, 0, 0, 0);
+        pnl_body.add(pnl_utility, gridBagConstraints);
+
+        pnl_rooms.setBackground(new java.awt.Color(153, 153, 153));
+        pnl_rooms.setMaximumSize(new java.awt.Dimension(900, 2000));
+        pnl_rooms.setMinimumSize(new java.awt.Dimension(900, 2000));
+        pnl_rooms.setPreferredSize(new java.awt.Dimension(900, 2000));
+        pnl_rooms.setLayout(new java.awt.GridLayout(0, 5, 8, 8));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(12, 0, 0, 0);
+        pnl_body.add(pnl_rooms, gridBagConstraints);
+
+        pnl_sidePane.setBackground(new java.awt.Color(204, 204, 204));
+        pnl_sidePane.setMaximumSize(new java.awt.Dimension(200, 200));
+        pnl_sidePane.setMinimumSize(new java.awt.Dimension(200, 200));
+        pnl_sidePane.setPreferredSize(new java.awt.Dimension(200, 200));
+
+        javax.swing.GroupLayout pnl_sidePaneLayout = new javax.swing.GroupLayout(pnl_sidePane);
+        pnl_sidePane.setLayout(pnl_sidePaneLayout);
+        pnl_sidePaneLayout.setHorizontalGroup(
+            pnl_sidePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pnl_sidePaneLayout.setVerticalGroup(
+            pnl_sidePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 3;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(12, 0, 0, 0);
+        pnl_body.add(pnl_sidePane, gridBagConstraints);
+
+        pnl_footer.setBackground(new java.awt.Color(102, 102, 102));
+        pnl_footer.setMaximumSize(new java.awt.Dimension(900, 100));
+        pnl_footer.setMinimumSize(new java.awt.Dimension(900, 100));
+        pnl_footer.setPreferredSize(new java.awt.Dimension(900, 100));
+
+        javax.swing.GroupLayout pnl_footerLayout = new javax.swing.GroupLayout(pnl_footer);
+        pnl_footer.setLayout(pnl_footerLayout);
+        pnl_footerLayout.setHorizontalGroup(
+            pnl_footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1100, Short.MAX_VALUE)
+        );
+        pnl_footerLayout.setVerticalGroup(
+            pnl_footerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.gridwidth = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        pnl_body.add(pnl_footer, gridBagConstraints);
+
+        jScrollPane2.setViewportView(pnl_body);
+
+        menu_bar.setPreferredSize(new java.awt.Dimension(64, 50));
+        //jMenuBar1.add(createHorizontalGlue());
+
+        mnu_modules.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hrm/images/icons/vertical-align-bottom-4x.png"))); // NOI18N
+        mnu_modules.setText("HRM System");
+        mnu_modules.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        mnu_modules.setDelay(100);
+
+        Housekeeping.setText("Housekeeping");
+        Housekeeping.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HousekeepingActionPerformed(evt);
+            }
+        });
+        mnu_modules.add(Housekeeping);
+
+        RoomFacilities.setText("Facilities");
+        RoomFacilities.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RoomFacilitiesActionPerformed(evt);
+            }
+        });
+        mnu_modules.add(RoomFacilities);
+
+        FrontDesk.setText("Front Desk");
+        mnu_modules.add(FrontDesk);
+
+        Billing.setText("Billing");
+        mnu_modules.add(Billing);
+
+        SupplierManagement.setText("Supplier Management");
+        SupplierManagement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierManagementActionPerformed(evt);
+            }
+        });
+        mnu_modules.add(SupplierManagement);
+
+        menu_bar.add(mnu_modules);
+        menu_bar.add(createHorizontalGlue());
+
+        admin_name.setText("Mr. John Doe");
+
+        mnu_system_request.setText("System Request");
+        mnu_system_request.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        mnu_system_request.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        mnu_system_request.setMaximumSize(new java.awt.Dimension(200, 40));
+        mnu_system_request.setMinimumSize(new java.awt.Dimension(200, 40));
+        mnu_system_request.setPreferredSize(new java.awt.Dimension(200, 40));
+        admin_name.add(mnu_system_request);
+
+        admin_level.setText("FrontDeskOfficer");
+        admin_level.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        admin_level.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        admin_level.setMaximumSize(new java.awt.Dimension(200, 40));
+        admin_level.setMinimumSize(new java.awt.Dimension(200, 40));
+        admin_level.setPreferredSize(new java.awt.Dimension(200, 40));
+        admin_name.add(admin_level);
+
+        mnu_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hrm/images/icons/account-logout-2x.png"))); // NOI18N
+        mnu_logout.setText("Logout");
+        mnu_logout.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        mnu_logout.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        mnu_logout.setMaximumSize(new java.awt.Dimension(200, 40));
+        mnu_logout.setMinimumSize(new java.awt.Dimension(200, 40));
+        mnu_logout.setPreferredSize(new java.awt.Dimension(200, 40));
+        mnu_logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnu_logoutActionPerformed(evt);
+            }
+        });
+        admin_name.add(mnu_logout);
+
+        menu_bar.add(admin_name);
+
+        setJMenuBar(menu_bar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1048, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 651, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void mnu_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnu_logoutActionPerformed
+        int lgt = JOptionPane.showConfirmDialog(null,"Are you sure you want to logout?","Logout",JOptionPane.YES_NO_OPTION);                
+        if(lgt == 0){
+            new Login().setVisible(true);
+            this.dispose();            
+        }
+    }//GEN-LAST:event_mnu_logoutActionPerformed
+
+    private void HousekeepingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HousekeepingActionPerformed
+        Housekeeping houseKeeping = new Housekeeping();
+        
+        houseKeeping.setVisible(true);
+    }//GEN-LAST:event_HousekeepingActionPerformed
+
+    private void SupplierManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierManagementActionPerformed
+        Supplier supplier = new Supplier();
+        supplier.setVisible(true);
+    }//GEN-LAST:event_SupplierManagementActionPerformed
+
+    private void RoomFacilitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RoomFacilitiesActionPerformed
+        RoomFacilities roomFacilities = new RoomFacilities();        
+        roomFacilities.setVisible(true);
+    }//GEN-LAST:event_RoomFacilitiesActionPerformed
+
+    public JMenu add(JMenu jmenu) {
+        menu_bar.add(createHorizontalGlue());
+        return menu_bar.add(jmenu);
+    }
+    
+    public void addRoomTile(){
+        ArrayList<RoomTiles> rooms = new ArrayList<>();
+        for(int i = 0; i < 50; i++){
+            RoomTiles room = new RoomTiles();                        
+            if(i == 3){
+                room.status = "available";
+                room.lbl_room_no.setBackground(Color.RED);
+            }else{
+                room.status = "occupied";
+                room.lbl_room_no.setBackground(Color.GREEN);                
+            }
+            room.lbl_room_no.setText("0"+i+1);
+            rooms.add(room);
+            this.pnl_rooms.add(rooms.get(i));
+        }
+    }
 
     /**
      * @param args the command line arguments
@@ -53,7 +368,7 @@ public class FrontOffice extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -68,15 +383,44 @@ public class FrontOffice extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrontOffice.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrontOffice().setVisible(true);
+                new FrontOffice().setVisible(true);                                                                            
             }
+            
         });
     }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JMenuItem Billing;
+    public javax.swing.JMenuItem FrontDesk;
+    public javax.swing.JMenuItem Housekeeping;
+    public javax.swing.JMenuItem RoomFacilities;
+    public javax.swing.JMenuItem SupplierManagement;
+    public javax.swing.JMenuItem admin_level;
+    public javax.swing.JMenu admin_name;
+    public javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    public javax.swing.JMenu jMenu2;
+    public javax.swing.JMenuItem jMenuItem1;
+    public javax.swing.JMenuItem jMenuItem2;
+    public javax.swing.JMenuItem jMenuItem3;
+    public javax.swing.JMenuItem jMenuItem4;
+    public javax.swing.JMenuItem jMenuItem5;
+    public javax.swing.JMenuItem jMenuItem6;
+    public javax.swing.JScrollPane jScrollPane2;
+    public javax.swing.JMenuBar menu_bar;
+    public javax.swing.JMenuItem mnu_logout;
+    public javax.swing.JMenu mnu_modules;
+    public javax.swing.JMenuItem mnu_system_request;
+    public javax.swing.JPanel pnl_body;
+    public javax.swing.JPanel pnl_footer;
+    public javax.swing.JPanel pnl_rooms;
+    public javax.swing.JPanel pnl_sidePane;
+    public javax.swing.JPanel pnl_utility;
+    public javax.swing.JPopupMenu roomUtility;
     // End of variables declaration//GEN-END:variables
 }

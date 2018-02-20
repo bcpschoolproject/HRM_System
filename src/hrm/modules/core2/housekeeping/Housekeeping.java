@@ -5,6 +5,8 @@
  */
 package hrm.modules.core2.housekeeping;
 
+import hrm.modules.core2.billing.*;
+
 /**
  *
  * @author DelaTorreNelson
@@ -12,7 +14,7 @@ package hrm.modules.core2.housekeeping;
 public class Housekeeping extends javax.swing.JFrame {
 
     /**
-     * Creates new form Housekeeping
+     * Creates new form Billing
      */
     public Housekeeping() {
         initComponents();
@@ -26,20 +28,24 @@ public class Housekeeping extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Housekeeping");
+        setResizable(false);
+        setType(java.awt.Window.Type.UTILITY);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 641, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 544, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -67,6 +73,9 @@ public class Housekeeping extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Housekeeping.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

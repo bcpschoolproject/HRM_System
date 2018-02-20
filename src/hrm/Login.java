@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 package hrm;
+import hrm.modules.core2.front_office.FrontOffice;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import static javax.swing.Box.createHorizontalGlue;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,8 +22,8 @@ public class Login extends javax.swing.JFrame {
     ResultSet rs = null;
     Connection conn = null;
     PreparedStatement pst = null;
-    public String adminLevel = null;
-    public String adminName = null;
+    public String userlevel = null;
+    public String loginName = null;
     public int loginAttempt = 0;
     
     public Login() {
@@ -51,6 +53,7 @@ public class Login extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login");
         setExtendedState(6);
         setUndecorated(true);
         getContentPane().setLayout(new java.awt.GridBagLayout());
@@ -114,8 +117,8 @@ public class Login extends javax.swing.JFrame {
             .addGroup(pnl_loginLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(username, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
@@ -171,7 +174,7 @@ public class Login extends javax.swing.JFrame {
         admin_name.setText("jMenu5");
         jMenuBar1.add(admin_name);
 
-        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/hrm/images/icons/account-logout-2x.png"))); // NOI18N
+        jMenu1.setText("X");
         jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu1MouseClicked(evt);
@@ -190,24 +193,24 @@ public class Login extends javax.swing.JFrame {
         btn_login.setText("Login");
         btn_login.setForeground(Color.DARK_GRAY);
     }//GEN-LAST:event_usernameFocusGained
-
+   
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        String sql = " SELECT admin_name, admin_password, admin_level FROM admin where admin_name=? and admin_password=?";
+        String sql = " SELECT employee_username, employee_password, employee_level, employee_position FROM employee where BINARY employee_username=? and BINARY employee_password=?";
 
         try {
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital","root","");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hotelrestaurant","root","");
             pst=conn.prepareStatement(sql);
             pst.setString(1,username.getText());
             pst.setString(2,password.getText());
             rs=pst.executeQuery();
             if(rs.next()){
-                adminName = rs.getString(1);
-                adminLevel = rs.getString(3);
+                loginName = rs.getString(1);
+                userlevel = rs.getString(3);
                 rs.close();
                 pst.close();
-                Main s = new Main ();
-                s.admin_level.setText(adminLevel);
-                s.admin_name.setText(adminName);
+                FrontOffice s = new FrontOffice ();
+                s.admin_level.setText(userlevel);
+                s.admin_name.setText(loginName);
                 s.setVisible(true) ;
                 this.setVisible(false);
             }
@@ -264,7 +267,7 @@ public class Login extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equals(info.getName())) {
+                if ("Darcula".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
